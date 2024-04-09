@@ -3,7 +3,13 @@ import blackLogo from "../assets/images/logo-black.svg";
 import world from "../assets/images/world.svg";
 import worldBlack from "../assets/images/world-black.svg";
 
-export default function NavbarWhite({ click, vairant = "black" }) {
+export default function NavbarWhite({
+  click,
+  vairant = "black",
+}: {
+  click: () => void;
+  vairant: string;
+}) {
   return (
     <nav className="flex flex-col-reverse md:flex-row gap-y-5 justify-between items-center z-[2] w-full max-w-7xl px-5 xl:px-0">
       <div className="flex items-center gap-3">

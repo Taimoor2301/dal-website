@@ -8,7 +8,7 @@ export default function Home() {
       id="home-bg"
       className="min-h-screen flex flex-col justify-between items-center relative gap-10 py-10"
     >
-      <NavbarWhite click={() => navigate("/why-dal")} />
+      <NavbarWhite click={() => navigate("/why-dal")} vairant="black" />
 
       <div className="flex flex-col gap-7 items-center justify-center text-center text-white z-[2] flex-1">
         <h1 className="md:text-4xl text-xl">،وداعاً للتعقيد</h1>

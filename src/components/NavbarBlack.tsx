@@ -1,6 +1,6 @@
 import world from "../assets/images/world-black.svg";
 import blackLogo from "../assets/images/logo-black.svg";
-export default function NavBar({ click }) {
+export default function NavBar({ click }: { click: () => void }) {
   return (
     <nav className="flex flex-col-reverse gap-y-10 md:flex-row justify-between items-center z-[2] w-full max-w-7xl px-5 xl:px-0">
       <div className="flex items-center gap-3">

@@ -1,10 +1,24 @@
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import images from "../../assets/why-dal/index";
 import NavbarWhite from "../../components/NavbarWhite";
 import { useNavigate } from "react-router-dom";
 
+interface obj {
+  title: string;
+  text: string;
+  src: string;
+}
+
+interface listElm {
+  name: string;
+  icon: {
+    fill: string;
+    white: string;
+  };
+}
+
 export default function WhyDal() {
-  const [active, setActive] = useState(data["موجه"]);
+  const [active, setActive] = useState(data["موجه" as keyof typeof data]);
   const navigate = useNavigate();
 
   const isLastActive = active.title === "أمان";
@@ -43,7 +57,7 @@ export default function WhyDal() {
 
           <div className="flex lg:flex-col flex-row-reverse gap-3 lg:gap-0 items-end lg:col-span-2 col-span-full order-1 lg:order-3">
             {list.map((item, i) =>
-              item === "line" ? (
+              item.name === "line" ? (
                 <div
                   className="h-10 hidden lg:block relative right-8 w-[2px] bg-gray-200"
                   key={i}
@@ -65,12 +79,22 @@ export default function WhyDal() {
   );
 }
 
-const Selectable = ({ setActive, active, item, lastActive }) => {
+const Selectable = ({
+  setActive,
+  active,
+  item,
+  lastActive,
+}: {
+  active: obj;
+  item: listElm;
+  lastActive: boolean;
+  setActive: Dispatch<SetStateAction<obj>>;
+}) => {
   const isActive = active.title === item.name;
 
   return (
     <div
-      onClick={() => setActive(data[item.name])}
+      onClick={() => setActive(data[item.name as keyof typeof data])}
       className="flex gap-3 md:gap-6 cursor-pointer place-items-center"
     >
       <h3 className={`md:text-xl text-right ${isActive ? "font-bold" : ""}`}>
@@ -119,10 +143,10 @@ const data = {
 
 const list = [
   { name: "موجه", icon: images.iconOne },
-  "line",
+  { name: "line", icon: { fill: "", white: "" } },
   { name: "موثوقه", icon: images.iconTwo },
-  "line",
+  { name: "line", icon: { fill: "", white: "" } },
   { name: "بسيط", icon: images.iconThree },
-  "line",
+  { name: "line", icon: { fill: "", white: "" } },
   { name: "أمان", icon: images.iconFour },
 ];

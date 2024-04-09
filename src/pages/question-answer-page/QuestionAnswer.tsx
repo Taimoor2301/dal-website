@@ -1,6 +1,6 @@
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { SetStateAction, useState, Dispatch } from "react";
 import { useNavigate } from "react-router-dom";
 import NavbarWhite from "../../components/NavbarWhite";
 
@@ -33,7 +33,19 @@ export default function QuestionAnswerPage() {
   );
 }
 
-const FaqElement = ({ q, a, open, setOpen, index }) => {
+const FaqElement = ({
+  q,
+  a,
+  open,
+  setOpen,
+  index,
+}: {
+  q: string;
+  a: string;
+  open: number;
+  setOpen: Dispatch<SetStateAction<number>>;
+  index: number;
+}) => {
   const expanded = open === index;
 
   const Icon = expanded ? <AiOutlineMinus /> : <AiOutlinePlus />;
@@ -46,7 +58,7 @@ const FaqElement = ({ q, a, open, setOpen, index }) => {
           ? "linear-gradient(230.51deg, rgba(51, 104, 126, 0.016) 0%, rgba(51, 104, 126, 0.128) 100%)"
           : "",
       }}
-      onClick={() => setOpen((p) => (p === index ? null : index))}
+      onClick={() => setOpen((p) => (p === index ? 99 : index))}
     >
       <button className="flex w-full items-center justify-between font-medium gap-10">
         <span
