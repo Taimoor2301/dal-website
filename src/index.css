@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+#home-bg{
+    background-image: url(./assets/images/homebg.jpeg);
+}
+
+#home-bg::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: #33677ed0;
+    z-index: 1;
+}
+
+
+
+.font-cairo {
+    font-family: "Cairo", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0;
+}
